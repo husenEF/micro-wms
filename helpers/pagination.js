@@ -5,15 +5,19 @@
 */
 
 const pagination = (data) => {
-    const limit = data.limit ? parseInt(data.limit) : 10
-    const offset = !data.page || data.page <= 1 ? 0 : data.page * limit - limit
+  const limit = data.limit ? parseInt(data.limit) : 10;
+  const offset = !data.page || data.page <= 1 ? 0 : data.page * limit - limit;
 
-    const totalItems = data.count
-    const totalPages = data.count == 0 ? 0 : Math.ceil(totalItems / limit)
-    const currentPage = offset >= 1 ? data.page : 1
-    return {    
-        limit, offset, totalItems, totalPages, currentPage
-    }
-}
+  const totalItems = data.count;
+  const totalPages = data.count == 0 ? 0 : Math.ceil(totalItems / limit);
+  const currentPage = offset >= 1 ? data.page : 1;
+  return {
+    limit,
+    offset,
+    totalItems,
+    totalPages,
+    currentPage,
+  };
+};
 
-module.exports = pagination
+module.exports = pagination;
