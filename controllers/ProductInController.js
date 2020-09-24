@@ -35,11 +35,6 @@ class ProductInController {
         include: [{
           model: Product,
           attributes: attProduct,
-          include: [{
-            model: User,
-            as: "supplier",
-            attributes: attUser
-          }]
         }]
       })
 

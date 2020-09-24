@@ -9,12 +9,12 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-const userRoute = require("./routes/user");
+// const userRoute = require("./routes/user");
 const productRoute = require("./routes/product");
 const productInRoute = require("./routes/product_in");
-const authRoute = require("./routes/auth");
+// const authRoute = require("./routes/auth");
 const productOutRoute = require("./routes/product_out");
-const reportRoute = require("./routes/print");
+// const reportRoute = require("./routes/print");
 const auth = require("./middleware/AuthMiddleware");
 const taskScheduler = require("./helpers/taskScheduler");
 
@@ -57,15 +57,15 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.json({ hello: "world" });
+app.get("/hello", (req, res) => {
+  res.json({ hello: "produk" });
 });
-app.use("/api/v1/user", auth, userRoute);
-app.use("/api/v1/product", auth, productRoute);
-app.use("/api/v1/in", auth, productInRoute);
-app.use("/api/v1/auth", authRoute);
-app.use("/api/v1/out", auth, productOutRoute);
-app.use("/api/v1/print", auth, reportRoute);
+// app.use("/api/v1/user", auth, userRoute);
+app.use("/", auth, productRoute);
+app.use("/in", auth, productInRoute);
+// app.use("/auth", authRoute);
+app.use("/out", auth, productOutRoute);
+// app.use("/api/v1/print", auth, reportRoute);
 
 taskScheduler();
 

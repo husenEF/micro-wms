@@ -25,13 +25,6 @@ class ProductController {
 
     const productget = await Product.findByPk(id, {
       attributes: attProduct,
-      include: [
-        {
-          model: User,
-          as: "supplier",
-          attributes: attUser,
-        },
-      ],
     });
 
     try {
@@ -66,7 +59,7 @@ class ProductController {
           if (result === undefined) {
             throw new Error(`Cloudinary Error:${err.message}`);
           }
-          
+
           // console.log(result, err.message);
         }
       );
