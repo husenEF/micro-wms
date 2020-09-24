@@ -1,4 +1,4 @@
-const Joi = require('@hapi/joi')
+const Joi = require('joi')
 
 /* 
     register validasi: hanya field yg ada disini yg boleh jadi body.
