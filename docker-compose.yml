@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  db:
+    container_name: mysql-compose
+    image: mysql:latest
+    environment: 
+      - MYSQL_ROOT_PASSWORD=password123
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  web:
+    build: .
+    ports:
+      - 3002:3002
+    environment:
+      - PORT=3002
+      - SECRET=Bismillah
+      - MAILTRAP_USER=99114d651047ef
+      - MAILTRAP_PASS=3d7ced13794fed
+      - FROM_MAIL=husenef@gmail.com
+      - DB_USERNAME=root
+      - DB_PASSWORD=password123
+      - DB_HOST=db
+      - DB_NAME=wms_produk
