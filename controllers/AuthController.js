@@ -1,9 +1,9 @@
-require('dotenv').config()
-const models = require("../models")
-const response = require('../helpers/response')
-const jwt = require('jsonwebtoken')
-const bcrypt = require("bcrypt")
-const jwtSecret = process.env.SECRET
+require("dotenv").config();
+const models = require("../models");
+const response = require("../helpers/response");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const jwtSecret = process.env.SECRET;
 
 class Controller {
   static async login(req, res) {

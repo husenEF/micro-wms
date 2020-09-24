@@ -33,7 +33,7 @@ module.exports = () => {
         })
         for (let i = 0; i < count_admin; i++) {
             const mailOptions = {
-                from: process.env.GMAIL_USERNAME,
+                from: process.env.FROM_MAIL,
                 to: rows_admin[i].email,
                 subject: `[Monthly Notification] of ${monthNames[month]}`,
                 attachments: [{
